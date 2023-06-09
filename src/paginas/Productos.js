@@ -1,6 +1,8 @@
+import React from "react";
 const productos = () => {
     return (
-      <div>Productos</div>
+      <h1>Productos</h1>
     )
   }
+  
   export default productos

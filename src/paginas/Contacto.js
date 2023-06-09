@@ -1,6 +1,7 @@
+import React from "react";
 const contacto = () => {
     return (
-      <div>Contacto</div>
+      <h1>Contacto</h1>
     )
   }
   
