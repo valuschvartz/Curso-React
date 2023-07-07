@@ -12,7 +12,7 @@ function ItemList({ items }) {
     { items.map(thisitem => {
       return (
   <Container key={thisitem.id}>
-  <Item picture={thisitem.picture} category={thisitem.category} stock={thisitem.stock} item={thisitem.id} name={thisitem.name} description={thisitem.description} price={thisitem.price}/>
+  <Item picture={thisitem.img} category={thisitem.category}  item={thisitem.id} name={thisitem.nombre} description={thisitem.description} price={thisitem.precio}/>
   </Container>
       )
     })}

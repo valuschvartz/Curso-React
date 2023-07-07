@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 
-function Item({ item, nombre, price, img, category } ) {
+function Item({ item, nombre, precio, img, category } ) {
   const { getItemQuantity, isInCart } = useCartContext();
 
 
@@ -25,7 +25,7 @@ function Item({ item, nombre, price, img, category } ) {
    
     </Card.Body>
     <Container className="d-flex justify-content-center text-center align-middle w-100 mw-30">
-    <Badge bg="success me-2 mb-4 text-center">{price} $</Badge>
+    <Badge bg="success me-2 mb-4 text-center">{precio} $</Badge>
     
     </Container>
     <LinkContainer to={`/item/${item}`}><Button className="btn btn-info">Ver detalles</Button></LinkContainer>
