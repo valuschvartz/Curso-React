@@ -3,10 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, Badge, Container } from 'react-bootstrap';
 import useCartContext from '../../store/CartContext';
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import './CartView.css';
 
-function CartView({ greeting }) {
+function CartView({ product }) {
   const { cart, removeFromCart, clearCart, itemsTotal, precioTotal } = useCartContext();
 
   const handleVaciar = () => {
@@ -52,7 +50,11 @@ function CartView({ greeting }) {
                 <Container key={itemCart.id}>
                   <Card className="bg-warning shadow-lg p-3 mb-3 mr-2 ml-2 rounded text-center">
                     <Card.Title>{itemCart.name} x{itemCart.cant}</Card.Title>
-                    <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/ojala-fb7c7.appspot.com/o/tour.jpg?alt=media&token=42ad6248-9fc4-4ded-bcda-4b009571a411" alt={itemCart.name} />
+                    {itemCart.img ? (
+                      <Card.Img variant="top" src={itemCart.img} alt={itemCart.name} />
+                    ) : (
+                      <div className="no-image">No Image</div>
+                    )}
                     <Card.Body>
                       <Card.Text>Categoría: {itemCart.category}</Card.Text>
                       <Badge className="m-1" bg="success">

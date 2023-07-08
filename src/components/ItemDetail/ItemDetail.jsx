@@ -1,26 +1,21 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Badge, Container } from 'react-bootstrap';
 
-const CartView = ({ product }) => {
+const ItemDetail = ({ item }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia component="img" image={product.img} alt="green iguana" />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {product.product}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.category} | {product.price}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+    <Card>
+      <Card.Img variant="top" src={item.img} alt={item.name} />
+      <Card.Body>
+        <Card.Title>{item.name}</Card.Title>
+        <Card.Subtitle>{item.category}</Card.Subtitle>
+        <Card.Text>{item.description}</Card.Text>
+        <Container className="d-flex justify-content-center text-center align-middle w-100 mw-30">
+          <Badge bg="success me-2 mb-4 text-center">{item.price} $</Badge>
+        </Container>
+      </Card.Body>
     </Card>
   );
 };
 
-export default CartView;
+export default ItemDetail;
