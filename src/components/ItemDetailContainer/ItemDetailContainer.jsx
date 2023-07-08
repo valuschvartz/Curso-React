@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner/index";
-import CartView from "../../components/CartView/CartView";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import { collection, query, where, getDocs, doc } from "firebase/firestore";
 import { db } from "../../services/FireStore";
 
@@ -36,16 +36,9 @@ const ItemDetailContainer = () => {
         </div>
       ) : (
         productData.map((data) => (
-          <CartView
+          <ItemDetail
             key={data.id}
-            product={{
-              id: data.id,
-              name: data.nombre,
-              category: data.category,
-              img: data.img, // Adjust the field name accordingly
-              price: data.precio,
-              description: data.descripcion, // Add the description field from the database
-            }}
+            item={data}
           />
         ))
       )}
@@ -54,3 +47,4 @@ const ItemDetailContainer = () => {
 };
 
 export default ItemDetailContainer;
+

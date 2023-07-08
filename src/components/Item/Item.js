@@ -6,7 +6,7 @@ import './Item.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
-function Item({ item, nombre, precio, img, category }) {
+const Item = ({ item, nombre, precio, img, category }) => {
   const { getItemQuantity, isInCart } = useCartContext();
 
   return (
@@ -37,6 +37,6 @@ function Item({ item, nombre, precio, img, category }) {
       </LinkContainer>
     </Card>
   );
-}
+};
 
 export default Item;
