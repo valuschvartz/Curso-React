@@ -1,3 +1,41 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 100px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 10px;
+}
+
+.item .card-img-top {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.item .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.item .card-text {
+  margin-bottom: 10px;
+}
+
+.item .badge {
+  margin-right: 5px;
+}
+
+.item .btn {
+  width: 100%;
+}
+
 .mostrar-cantidadItem {
   display: inline-block;
   width: 15px;
@@ -6,15 +44,19 @@
   background-color: #ffffff;
   border-radius: 50%;
   font-size: 12px;
-  position: relative;
+  position: absolute;
+  top: -5px;
+  right: -5px;
   text-align: center;
-  line-height: 17px;
+  line-height: 15px;
 }
+
 .cart-icon2 {
   position: relative;
   cursor: pointer;
   text-align: center;
 }
-.picHover{
-cursor: pointer;
+
+.picHover {
+  cursor: pointer;
 }

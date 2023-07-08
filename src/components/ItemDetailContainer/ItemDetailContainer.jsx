@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./ItemDetailContainer.css";
-
 import LoadingSpinner from "../../components/LoadingSpinner/index";
 import CartView from "../../components/CartView/CartView";
-
 import { collection, query, where, getDocs, doc } from "firebase/firestore";
 import { db } from "../../services/FireStore";
 

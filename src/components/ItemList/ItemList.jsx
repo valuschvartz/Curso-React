@@ -1,22 +1,25 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Item from '../Item/Item';
+import Item from '../Item/Item.js';
 import './ItemList.css';
 import { Container } from 'react-bootstrap';
 
-const ItemList = ({ items }) => {
+function ItemList({ items }) {
   return (
-    <div className="ItemList">
-      <Container>
+    <Container>
+      <div className="ItemList">
         {items.map((item) => (
           <Item
             key={item.id}
             item={item}
+            nombre={item.nombre}
+            category={item.category}
+            precio={item.precio}
+            img={item.img} // Agrega aquí el campo de imagen correspondiente
           />
         ))}
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
-};
+}
 
 export default ItemList;

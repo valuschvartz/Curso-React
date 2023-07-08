@@ -1,6 +1,5 @@
-// ItemListContainer.js
 import React, { useEffect, useState } from 'react';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, getDocs } from 'firebase/firestore';
 import { db } from '../../services/FireStore';
 import LoadingSpinner from '../LoadingSpinner';
 import ItemList from '../ItemList/ItemList';
@@ -36,7 +35,7 @@ const ItemListContainer = () => {
           <LoadingSpinner />
         </div>
       ) : (
-        <ItemList items={items} />
+        <ItemList items={items || []} />
       )}
     </div>
   );
