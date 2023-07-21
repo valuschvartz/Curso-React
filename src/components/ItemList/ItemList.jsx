@@ -1,26 +1,27 @@
 import React from 'react';
-import Item from '../Item/Item.js';
+import Item from '../Item/Item';
 import './ItemList.css';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function ItemList({ items }) {
   return (
-    <>
-      {items.map((item) => (
-        <Container key={item.id}>
-          {/* Pasamos las props con los nombres adecuados */}
-          <Item
-            img={item.img}
-            category={item.category}
-            stock={item.stock}
-            id={item.id}
-            nombre={item.nombre}
-            descripcion={item.descripcion}
-            precio={item.precio}
-          />
-        </Container>
-      ))}
-    </>
+    <Container>
+      <Row className="ItemList justify-content-center">
+        {items.map((item) => (
+          <Col key={item.id} sm={8} md={4} lg={4} xl={4}>
+            <Item
+              item={item}
+              nombre={item.nombre}
+              category={item.category}
+              precio={item.precio}
+              img={item.img}
+              descripcion={item.descripcion}
+              stock={item.stock}
+            />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 

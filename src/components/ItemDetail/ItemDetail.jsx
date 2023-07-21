@@ -34,7 +34,7 @@ function ItemDetail({ detalle }) {
     return <LoadingSpinner />;
   }
 
-  document.title = `Ojala Te Enamores! ${detalle.category}/${detalle.nombre}`;
+  document.title = `Estuardo ${detalle.category}/${detalle.nombre}`;
 
   return (
     <>

@@ -1,3 +1,5 @@
+
+
 .Counter {
   display: flex;
   align-items: center;
@@ -20,5 +22,34 @@
 
 .Number {
   margin: 0 10px;
+}
+
+/* ItemCount.css */
+.btn-secondary {
+  background-color: #6c757d;
+  color: #000;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  color: #fff;
+  border-color: #343a40;
+}
+
+.btn-dark:hover {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.btn-hover-white:hover {
+  color: #fff;
 }
 
