@@ -7,10 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { CartContextProvider } from './store/CartContext';
-import Footer from './components/Footer';
 import CheckOut from './pages/CheckOut/index';
 import Inicio from './pages/Inicio/index';
-import Servicios from './pages/Servicios/index';
 import Acerca from './pages/Acerca/index';
 import Contacto from './pages/Contacto/index';
 import firebaseApp from './services/FireStore';
@@ -24,11 +22,10 @@ function App() {
           <main>
             <Routes>
               <Route path="/inicio" element={<Inicio />} />
-              <Route path="/servicios" element={<Servicios />} />
               <Route path="/acercade" element={<Acerca />} />
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/checkout" element={<CheckOut />} />
-              <Route path="/item/:itemid" element={<ItemDetailContainer greeting="Detalle de producto" />} />
+              <Route path="/item/:id" element={<ItemDetailContainer greeting="Detalle de producto" />} />
               <Route path="/" element={<ItemListContainer greeting="Menú!" />} />
               <Route path="/cart" element={<CartView greeting="Este es su carrito" />} />
               <Route path="/category/:category" element={<ItemListContainer greeting="Categoría" />} />
@@ -40,7 +37,7 @@ function App() {
               </div>
             </div>
           </main>
-          <Footer />
+        
         </HashRouter>
       </CartContextProvider>
     </>

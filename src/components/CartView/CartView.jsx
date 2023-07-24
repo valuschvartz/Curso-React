@@ -49,7 +49,7 @@ const CartView = () => {
               {cart.map((item) => (
                 <Container key={item.id}>
                   {/* Reemplazar la clase bg-warning por product-card */}
-                  <Card className="product-card bg-warning shadow-lg p-3 mb-3 mr-2 ml-2 rounded text-center">
+                  <Card className="product-card bg-pink shadow-lg p-3 mb-3 mr-2 ml-2 rounded text-center">
                     <Card.Title>{item.name} x{getItemQuantity(item.id)}</Card.Title>
                     <Card.Img variant="top" src={item.img} alt={item.name} />
                     <Card.Body>
