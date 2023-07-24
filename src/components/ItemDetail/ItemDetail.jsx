@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../../assets/css/animaciones.css";
 
-
 function ItemDetail({ detalle }) {
   const [isInCart, setIsInCart] = useState(false);
   const { addToCart, estaEnCarrito, cartItems } = useCartContext();
@@ -25,7 +24,7 @@ function ItemDetail({ detalle }) {
   }
 
   function getItemQuantity(itemId) {
-    const cartItem = cartItems.find((item) => item.id === itemId);
+    const cartItem = cartItems ? cartItems.find((item) => item.id === itemId) : null;
     return cartItem ? cartItem.cant : 0;
   }
 
@@ -36,6 +35,7 @@ function ItemDetail({ detalle }) {
   document.title = `Ojala Te Enamores ${detalle.category}/${detalle.nombre}`;
 
   return (
+
     <>
       <Container className="d-flex text-center justify-content-center p-5 slide-in-fwd-center">
         <Breadcrumb
