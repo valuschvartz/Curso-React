@@ -1,93 +1,90 @@
-import React, { createContext } from "react";
-import { useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 const { Provider } = CartContext;
-const useCartContext = () => useContext(CartContext);
 
-export function CartContextProvider( {children} ) {
-    const [cart, setCart] = useState([]);
-    const addToCart = ( item, cant ) => {
-        if (isInCart(item.id)){
-           const newCart = cart.map(cartItem => {
-                if (cartItem.id === item.id){
-                const copyItem = {...cartItem};
-                copyItem.cant += cant;
-                return copyItem;
-                }
-                else 
-                return cartItem;
-                
-            })
-                setCart(newCart);
-    } 
-    else{
-        const newItem = {...item, cant};
-        setCart([...cart, newItem]);
+export function CartContextProvider({ children }) {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (item, cant) => {
+    if (isInCart(item.id)) {
+      const newCart = cart.map((cartItem) => {
+        if (cartItem.id === item.id) {
+          const copyItem = { ...cartItem };
+          copyItem.stock += cant; // Cambiar 'cant' por 'stock'
+          return copyItem;
+        } else return cartItem;
+      });
+      setCart(newCart);
+    } else {
+      const newItem = { ...item, stock: cant }; // Cambiar 'cant' por 'stock'
+      setCart([...cart, newItem]);
     }
-}
+  };
 
-// Revisamos si el item está en el cart
-
-const isInCart = (id) => {
+  const isInCart = (id) => {
     return cart.some((item) => item.id === id);
   };
 
   const estaEnCarrito = (id) => {
     return cart.some((item) => item.id === id);
   };
-  
-// Obtenemos un item específico del cart
 
   const getItemFromCart = (id) => {
     return cart.find((item) => item.id === id);
   };
 
-// Leemos la cantidad de unidades del item específico
-
-const getItemQuantity = (id) => {
+  const getItemQuantity = (id) => {
     const item = getItemFromCart(id);
-    return item ? item.cant : 0;
+    return item ? item.stock : 0; // Cambiar 'cant' por 'stock'
   };
 
+  function precioTotal() {
+    let total = 0;
+    cart.forEach((item) => (total += item.precio * item.stock)); // Cambiar 'price' por 'precio' y 'cant' por 'stock'
+    return total;
+  }
 
-// Obtenemos el precio total del carrito
+  function itemsTotal() {
+    let cantidad = 0;
+    cart.forEach((item) => (cantidad += item.stock)); // Cambiar 'cant' por 'stock'
+    return cantidad;
+  }
 
-    function precioTotal() {
-        let total = 0;
-        cart.map ( (i) => total += i.price * i.cant );
-        return total;
-      }
-    
-    function itemsTotal() {
-        let cantidad = 0;
-        cart.map(i => cantidad += i.cant);
-        return cantidad;
-      }
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
 
-// Removemos un item del cart
+  const clearCart = () => {
+    setCart([]);
+  };
 
-    const removeFromCart = (id) => {
-    const newCart = [...cart];
-    const cartFilter = newCart.filter(item =>{
-        return item.id !== id;
-    });
-    setCart(cartFilter);
-    }
-    
- // Vaciamos el cart   
-    const clearCart = () => {
-        setCart([]);
-    }
+  const contextFunction = () => {
+    // Aquí puedes definir la lógica de la función contextFunction si la necesitas.
+  };
 
-    const contextFunction = () => {}
-return (
-    <Provider value={ { contextFunction, estaEnCarrito, cart, addToCart, removeFromCart, clearCart, isInCart, getItemFromCart, getItemQuantity, precioTotal, itemsTotal } }>
-    {children}
+  return (
+    <Provider
+      value={{
+        cart,
+        addToCart,
+        isInCart,
+        estaEnCarrito,
+        getItemFromCart,
+        getItemQuantity,
+        precioTotal,
+        itemsTotal,
+        removeFromCart,
+        clearCart,
+        contextFunction,
+      }}
+    >
+      {children}
     </Provider>
-    
-)
-
+  );
 }
 
-export default useCartContext;
+export default function useCartContext() {
+  return useContext(CartContext);
+}

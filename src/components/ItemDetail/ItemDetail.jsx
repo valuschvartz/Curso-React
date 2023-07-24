@@ -25,7 +25,7 @@ function ItemDetail({ detalle }) {
 
   function getItemQuantity(itemId) {
     const cartItem = cartItems ? cartItems.find((item) => item.id === itemId) : null;
-    return cartItem ? cartItem.cant : 0;
+    return cartItem ? cartItem.stock : 0;
   }
 
   if (!detalle) {
@@ -35,7 +35,6 @@ function ItemDetail({ detalle }) {
   document.title = `Ojala Te Enamores ${detalle.category}/${detalle.nombre}`;
 
   return (
-
     <>
       <Container className="d-flex text-center justify-content-center p-5 slide-in-fwd-center">
         <Breadcrumb
@@ -89,7 +88,7 @@ function ItemDetail({ detalle }) {
               <Link to="/cart">
                 <div className="card-img-overlay h-100 d-flex flex-row justify-content-end">
                   <div className="card-text border-0 bg-semitransparent text-center">
-                    <Badge className="bg-success">Ir al carrito</Badge>
+                    <Badge className="bg-secondary">Ir al carrito</Badge>
                   </div>
                 </div>
               </Link>
@@ -99,21 +98,21 @@ function ItemDetail({ detalle }) {
             <div className="clearfix py-3">
               <div className="pull-right">
                 <h1>
-                  <strong className="text-success">{detalle.nombre}</strong>
+                  <strong className="text-light">{detalle.nombre}</strong>
                   <br />
                 </h1>
                 <h3>
-                  <strong className="text-success">{detalle.category}</strong>
+                  <strong className="text-light">{detalle.category}</strong>
                   <br />
                 </h3>
                 <span className="h2">
                   <strong>
-                    <Badge bg="success">Precio {detalle.price}$</Badge>
+                    <Badge bg="transparent">Precio {detalle.precio}$</Badge>
                   </strong>
                   {isInCart ? (
-                    <Badge className="bg-secondary ms-2">
+                    <Badge className="bg-transparent ms-2">
                       x{getItemQuantity(detalle.id)} ={" "}
-                      {detalle.price * getItemQuantity(detalle.id)}$
+                      {detalle.precio * getItemQuantity(detalle.id)}$
                     </Badge>
                   ) : null}
                 </span>
