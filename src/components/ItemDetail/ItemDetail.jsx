@@ -3,7 +3,7 @@ import { Badge, Container, Breadcrumb } from "react-bootstrap";
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/";
-import useCartContext from "../../store/CartContext";
+import useCartContext from "../../CartContext/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "../../assets/css/animaciones.css";
@@ -84,7 +84,8 @@ function ItemDetail({ detalle }) {
               alt={detalle.nombre}
               className="img-fluid push-bit align-middle h-100"
             />
-            {isInCart ? (
+            {/* Remove the "Agregar al carrito" button */}
+            {!isInCart ? null : (
               <Link to="/cart">
                 <div className="card-img-overlay h-100 d-flex flex-row justify-content-end">
                   <div className="card-text border-0 bg-semitransparent text-center">
@@ -92,7 +93,7 @@ function ItemDetail({ detalle }) {
                   </div>
                 </div>
               </Link>
-            ) : null}
+            )}
           </div>
           <div className="col-sm-6 col-md-6 col-lg-6 push-bit text-center">
             <div className="clearfix py-3">

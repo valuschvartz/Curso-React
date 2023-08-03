@@ -6,7 +6,7 @@ import './NavBar.css';
 // import Link from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap'
 import { useState } from 'react';
-import useCartContext from '../../store/CartContext.jsx';
+import useCartContext from '../../CartContext/CartContext';
 
 
 

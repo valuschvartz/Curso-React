@@ -6,7 +6,7 @@ import CartView from './components/CartView/CartView';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { CartContextProvider } from './store/CartContext';
+import { CartContextProvider } from './CartContext/CartContext';
 import Footer from './components/Footer';
 import CheckOut from './pages/CheckOut/index';
 import Inicio from './pages/Inicio/index';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Badge, Button, Container } from 'react-bootstrap';
-import useCartContext from '../../store/CartContext';
+import useCartContext from '../../CartContext/CartContext';
 import './CartView.css';
 
 const CartView = () => {

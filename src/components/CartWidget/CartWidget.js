@@ -3,7 +3,7 @@ import './CartWidget.css';
 import {LinkContainer} from 'react-router-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import useCartContext from '../../store/CartContext';
+import useCartContext from '../../CartContext/CartContext';
 
 
 function CartWidget(props) {

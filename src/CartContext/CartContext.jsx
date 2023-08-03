@@ -11,13 +11,13 @@ export function CartContextProvider({ children }) {
       const newCart = cart.map((cartItem) => {
         if (cartItem.id === item.id) {
           const copyItem = { ...cartItem };
-          copyItem.stock += cant; // Cambiar 'cant' por 'stock'
+          copyItem.cant += cant;
           return copyItem;
         } else return cartItem;
       });
       setCart(newCart);
     } else {
-      const newItem = { ...item, stock: cant }; // Cambiar 'cant' por 'stock'
+      const newItem = { ...item, cant };
       setCart([...cart, newItem]);
     }
   };
@@ -36,18 +36,18 @@ export function CartContextProvider({ children }) {
 
   const getItemQuantity = (id) => {
     const item = getItemFromCart(id);
-    return item ? item.stock : 0; // Cambiar 'cant' por 'stock'
+    return item ? item.cant : 0;
   };
 
   function precioTotal() {
     let total = 0;
-    cart.forEach((item) => (total += item.precio * item.stock)); // Cambiar 'price' por 'precio' y 'cant' por 'stock'
+    cart.forEach((i) => (total += i.precio * i.stock));
     return total;
   }
 
   function itemsTotal() {
     let cantidad = 0;
-    cart.forEach((item) => (cantidad += item.stock)); // Cambiar 'cant' por 'stock'
+    cart.forEach((i) => (cantidad += i.cant));
     return cantidad;
   }
 
